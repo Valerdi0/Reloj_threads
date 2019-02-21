@@ -1,5 +1,3 @@
-package relojes;
-
 import java.util.*;
 import javax.swing.JOptionPane;
 
@@ -37,9 +35,9 @@ public class Reloj extends javax.swing.JFrame implements Runnable {
        min1[3] = (int) (Math.random() * 60);
        seg1[3] = (int) (Math.random() * 60);
         
-        hora1[0]=Integer.parseInt(hora[0]);
+        /*hora1[0]=Integer.parseInt(hora[0]);
         min1[0]=Integer.parseInt(min[0]);
-        seg1[0]=Integer.parseInt(seg[0]);
+        seg1[0]=Integer.parseInt(seg[0]);*/
         
         initComponents();
         
@@ -66,7 +64,7 @@ public class Reloj extends javax.swing.JFrame implements Runnable {
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void initComponents() {
+    private void initComponents() {}
     
 
     private void guardarMouseClicked(java.awt.event.MouseEvent evt) {                                     
@@ -83,21 +81,21 @@ public class Reloj extends javax.swing.JFrame implements Runnable {
         }
        else{
            //Se verifica que las horas no sean mayores de 24 y los minutos de 60
-           int x=Integer.parseInt(H);
-           int y=Integer.parseInt(M);
-        if((x>=0 && x<=24)&&(y>=0 && y<=59)){  
-       hora1[0]=Integer.parseInt(H);
-       min1[0]=Integer.parseInt(M);
-       h1=new Thread(this);
-       id[0]=h1.getName();
-       h1.start();
-       }
-       else{
-           JOptionPane.showMessageDialog(null, "Los valores no son validos");
-           h1=new Thread(this);
-           id[0]=h1.getName();
-           h1.start();
-       }
+           	int x=Integer.parseInt(H);
+           	int y=Integer.parseInt(M);
+       		if((x>=0 && x<=24)&&(y>=0 && y<=59)){  
+		       hora1[0]=Integer.parseInt(H);
+		       min1[0]=Integer.parseInt(M);
+		       h1=new Thread(this);
+		       id[0]=h1.getName();
+		       h1.start();
+		    }
+       		else{
+		       	JOptionPane.showMessageDialog(null, "Los valores no son validos");
+		       	h1=new Thread(this);
+		       	id[0]=h1.getName();
+		       	h1.start();
+       		}
        }
     }                                    
                                  
@@ -107,29 +105,29 @@ public class Reloj extends javax.swing.JFrame implements Runnable {
         String M=text4.getText();
         
         
-       if(H.equals("")||M.equals("")){
-           JOptionPane.showMessageDialog(null, "Tienes que ingresar datos");
-           h2=new Thread(this);
-           id[1]=h2.getName();
-           h2.start();
-        }
-       else{
-           int x=Integer.parseInt(H);
-           int y=Integer.parseInt(M);
-        if((x>=0 && x<=24)&&(y>=0 && y<=59)){  
-       hora1[1]=Integer.parseInt(H);
-       min1[1]=Integer.parseInt(M);
-       h2=new Thread(this);
-       id[1]=h2.getName();
-       h2.start();
-       }
-       else{
-           JOptionPane.showMessageDialog(null, "Los valores no son validos");
-           h2=new Thread(this);
-           id[1]=h2.getName();
-           h2.start();
-       }
-       }
+		if(H.equals("")||M.equals("")){
+			JOptionPane.showMessageDialog(null, "Tienes que ingresar datos");
+			h2=new Thread(this);
+			id[1]=h2.getName();
+			h2.start();
+		}
+		else{
+			int x=Integer.parseInt(H);
+			int y=Integer.parseInt(M);
+			if((x>=0 && x<=24)&&(y>=0 && y<=59)){  
+				hora1[1]=Integer.parseInt(H);
+				min1[1]=Integer.parseInt(M);
+				h2=new Thread(this);
+				id[1]=h2.getName();
+				h2.start();
+			}
+			else{
+				JOptionPane.showMessageDialog(null, "Los valores no son validos");
+				h2=new Thread(this);
+				id[1]=h2.getName();
+				h2.start();
+			}
+		}
     }                                     
                                    
 
@@ -144,43 +142,43 @@ public class Reloj extends javax.swing.JFrame implements Runnable {
            id[2]=h3.getName();
            h3.start();
         }
-       else{
-           int x=Integer.parseInt(H);
-           int y=Integer.parseInt(M);
-        if((x>=0&&x<=24)&&(y>=0&&y<=59)){  
-       hora1[2]=Integer.parseInt(H);
-       min1[2]=Integer.parseInt(M);
-       h3=new Thread(this);
-       id[2]=h3.getName();
-       h3.start();
-       }
-       else{
-           JOptionPane.showMessageDialog(null, "Los valores no son validos");
-           h3=new Thread(this);
-           id[2]=h3.getName();
-           h3.start();
-       }
-       }
+       	else{
+           	int x=Integer.parseInt(H);
+           	int y=Integer.parseInt(M);
+		    if((x>=0&&x<=24)&&(y>=0&&y<=59)){  
+		       hora1[2]=Integer.parseInt(H);
+		       min1[2]=Integer.parseInt(M);
+		       h3=new Thread(this);
+		       id[2]=h3.getName();
+		       h3.start();
+		   	}
+		   	else{
+		       JOptionPane.showMessageDialog(null, "Los valores no son validos");
+		       h3=new Thread(this);
+		       id[2]=h3.getName();
+		       h3.start();
+		   	}
+       	}
     }                                     
                                   
 
     private void guardar3MouseClicked(java.awt.event.MouseEvent evt) {                                      
-       String cambioH=text7.getText();
+       	String cambioH=text7.getText();
         String cambioM=text8.getText();
         
         
-       if(H.equals("")||M.equals("")){
+       if(cambioH.equals("")||cambioM.equals("")){
            JOptionPane.showMessageDialog(null, "Tienes quw ingresar datos");
            h4=new Thread(this);
            id[3]=h4.getName();
            h4.start();
         }
        else{
-           int x=Integer.parseInt(H);
-           int y=Integer.parseInt(M);
+           int x=Integer.parseInt(cambioH);
+           int y=Integer.parseInt(cambioM);
         if((x>=0 && x<=24)&&(y>=0 && y<=59)){  
-       hora1[3]=Integer.parseInt(H);
-       min1[3]=Integer.parseInt(M);
+       hora1[3]=Integer.parseInt(cambioH);
+       min1[3]=Integer.parseInt(cambioM);
        h4=new Thread(this);
        id[3]=h4.getName();
        h4.start();
@@ -228,10 +226,17 @@ public class Reloj extends javax.swing.JFrame implements Runnable {
     private javax.swing.JTextField text6;
     private javax.swing.JTextField text7;
     private javax.swing.JTextField text8;
-    // End of variables declaration                   
+    // End of variables declaration  
 
-    public void run() {
- 
+    public void run(){
+
+    }
+
+    public static void main(String[] args)
+    {
+        Reloj r = new Reloj();
+        r.setVisible(true);
+
     }
     
-    
+} 
