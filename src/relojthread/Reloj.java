@@ -35,9 +35,9 @@ public class Reloj extends javax.swing.JFrame implements Runnable {
        min1[3] = (int) (Math.random() * 60);
        seg1[3] = (int) (Math.random() * 60);
         
-        /*hora1[0]=Integer.parseInt(hora[0]);
+        hora1[0]=Integer.parseInt(hora[0]);
         min1[0]=Integer.parseInt(min[0]);
-        seg1[0]=Integer.parseInt(seg[0]);*/
+        seg1[0]=Integer.parseInt(seg[0]);
         
         initComponents();
         
