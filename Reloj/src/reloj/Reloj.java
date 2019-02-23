@@ -15,10 +15,27 @@ public class Reloj {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-	Minutos reloj1 = new Minutos(0,0,1000,1);
-        Minutos reloj2 = new Minutos(12,0,100,2);
-        Minutos reloj3 = new Minutos(6,0,10,3);
-        Minutos reloj4 = new Minutos(18,0,1,4);
+	Minutos reloj1 = new Minutos(1);
+        Minutos reloj2 = new Minutos(2);
+        Minutos reloj3 = new Minutos(3);
+        Minutos reloj4 = new Minutos(4);
+        
+        reloj1.setHora(0);
+        reloj1.setMinuto(0);
+        reloj1.setVelocidad(1000);
+        
+        reloj2.setHora(1);
+        reloj2.setMinuto(0);
+        reloj2.setVelocidad(1000);
+        
+        reloj3.setHora(2);
+        reloj3.setMinuto(0);
+        reloj3.setVelocidad(1000);
+        
+        reloj4.setHora(3);
+        reloj4.setMinuto(0);
+        reloj4.setVelocidad(1000);
+        
         
         reloj1.start();
         reloj2.start();
