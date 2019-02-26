@@ -164,6 +164,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="12:00:00"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelReloj3">
           <Properties>
@@ -172,6 +175,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="12:00:00"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelReloj2">
           <Properties>
@@ -180,6 +186,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="12:00:00"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelReloj4">
           <Properties>
@@ -188,6 +197,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="12:00:00"/>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

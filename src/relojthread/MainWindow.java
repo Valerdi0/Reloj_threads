@@ -9,70 +9,23 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
+import java.lang.Float;
 
 /**
  *
  * @author Daniel
  */
-public class MainWindow extends javax.swing.JFrame implements Runnable {
+public class MainWindow extends javax.swing.JFrame {
     
-    
-    String hora[], min[], seg[];
-    int hora1[],min1[],seg1[];
-    String id[];
-    Thread h1,h2,h3,h4; //Se crea un hilo por cada reloj
+    public RelojHilo relojHilo;
 
     /**
      * Creates new form MainWindow
      */
     public MainWindow() {
-        Calendar cal = new GregorianCalendar();
-        Date fecha = new Date();
-        cal.setTime(fecha);
-        
-        hora = new String[4];
-        min = new String[4];
-        seg = new String[4];
-        
-        hora1 = new int[4];
-        min1 = new int[4];
-        seg1 = new int[4];
-        id = new String [4];
-        
-        //Hora aleatoria para 3 relojes
-        hora1[1] = (int) (Math.random() * 24);
-        min1[1] = (int) (Math.random() * 60);
-        seg1[1] = (int) (Math.random() * 60);
-        hora1[2] = (int) (Math.random() * 24);
-        min1[2] = (int) (Math.random() * 60);
-        seg1[2] = (int) (Math.random() * 60);
-        hora1[3] = (int) (Math.random() * 24);
-        min1[3] = (int) (Math.random() * 60);
-        seg1[3] = (int) (Math.random() * 60);
-        
-        hora1[0]=Integer.parseInt("12");
-        min1[0]=Integer.parseInt("00");
-        seg1[0]=Integer.parseInt("00");
-        
+                        
         initComponents();
-        
-        h1=new Thread(this);
-        h2=new Thread(this);
-        h3=new Thread(this);
-        h4=new Thread(this);
-        
-        //Se obtiene el nombre de cada hilo
-        id[0]=h1.getName();
-        id[1]=h2.getName();
-        id[2]=h3.getName();
-        id[3]=h4.getName();
-        
-        //Se lanzan los hilos
-        h1.start();
-        h2.start();
-        h3.start();
-        h4.start();
-    }
+            }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -295,31 +248,27 @@ public class MainWindow extends javax.swing.JFrame implements Runnable {
         String M=this.TFMinuto.getText();
         
          //Se verifica que no esten vacias
-        if(H.equals("")||M.equals("")){
+        if(H.equals("")||M.equals(""))
             JOptionPane.showMessageDialog(null, "Tienes que ingresar datos");
-            h1=new Thread(this);//Si no hay datos, que siga su marcha el reloj
-            id[0]=h1.getName();
-            h1.start();
-        }
         else{
            //Se verifica que las horas no sean mayores de 24 y los minutos de 60
            	int x=Integer.parseInt(H);
            	int y=Integer.parseInt(M);
        		if((x>=0 && x<=24)&&(y>=0 && y<=59)){  
-		       hora1[0]=Integer.parseInt(H);
+		       /*hora1[0]=Integer.parseInt(H);
 		       min1[0]=Integer.parseInt(M);
 		       h1=new Thread(this);
 		       id[0]=h1.getName();
-		       h1.start();
+		       h1.start();*/
+                       this.relojHilo.reloj1.setHora(x);
+                       this.relojHilo.reloj1.setMinuto(y);
+                       this.TFHora.setText("");
+                       this.TFMinuto.setText("");
 		    }
-       		else{
-		       	JOptionPane.showMessageDialog(null, "Los valores no son validos");
-		       	h1=new Thread(this);
-		       	id[0]=h1.getName();
-		       	h1.start();
-       		}
+       		else
+		    JOptionPane.showMessageDialog(null, "Los valores no son validos");
        }
-        System.out.println("Boton reloj1: " + this.TFHora.getText() + ":" + this.TFMinuto.getText());
+        //System.out.println("Boton reloj1: " + this.TFHora.getText() + ":" + this.TFMinuto.getText());
     }//GEN-LAST:event_BReloj1ActionPerformed
 
     private void BReloj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BReloj2ActionPerformed
@@ -328,31 +277,22 @@ public class MainWindow extends javax.swing.JFrame implements Runnable {
         String M=this.TFMinuto.getText();
         
          //Se verifica que no esten vacias
-        if(H.equals("")||M.equals("")){
+        if(H.equals("")||M.equals(""))
             JOptionPane.showMessageDialog(null, "Tienes que ingresar datos");
-            h1=new Thread(this);//Si no hay datos, que siga su marcha el reloj
-            id[0]=h1.getName();
-            h1.start();
-        }
         else{
            //Se verifica que las horas no sean mayores de 24 y los minutos de 60
            	int x=Integer.parseInt(H);
            	int y=Integer.parseInt(M);
        		if((x>=0 && x<=24)&&(y>=0 && y<=59)){  
-		       hora1[0]=Integer.parseInt(H);
-		       min1[0]=Integer.parseInt(M);
-		       h1=new Thread(this);
-		       id[0]=h1.getName();
-		       h1.start();
+		       this.relojHilo.reloj2.setHora(x);
+                       this.relojHilo.reloj2.setMinuto(y);
+                       this.TFHora.setText("");
+                       this.TFMinuto.setText("");
 		    }
-       		else{
-		       	JOptionPane.showMessageDialog(null, "Los valores no son validos");
-		       	h1=new Thread(this);
-		       	id[0]=h1.getName();
-		       	h1.start();
-       		}
+       		else
+		    JOptionPane.showMessageDialog(null, "Los valores no son validos");
         }
-        System.out.println("Boton reloj2: " + this.TFHora.getText() + ":" + this.TFMinuto.getText());
+        //System.out.println("Boton reloj2: " + this.TFHora.getText() + ":" + this.TFMinuto.getText());
     }//GEN-LAST:event_BReloj2ActionPerformed
 
     private void BReloj3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BReloj3ActionPerformed
@@ -361,31 +301,22 @@ public class MainWindow extends javax.swing.JFrame implements Runnable {
         String M=this.TFMinuto.getText();
         
          //Se verifica que no esten vacias
-        if(H.equals("")||M.equals("")){
+        if(H.equals("")||M.equals(""))
             JOptionPane.showMessageDialog(null, "Tienes que ingresar datos");
-            h1=new Thread(this);//Si no hay datos, que siga su marcha el reloj
-            id[0]=h1.getName();
-            h1.start();
-        }
         else{
            //Se verifica que las horas no sean mayores de 24 y los minutos de 60
            	int x=Integer.parseInt(H);
            	int y=Integer.parseInt(M);
        		if((x>=0 && x<=24)&&(y>=0 && y<=59)){  
-		       hora1[0]=Integer.parseInt(H);
-		       min1[0]=Integer.parseInt(M);
-		       h1=new Thread(this);
-		       id[0]=h1.getName();
-		       h1.start();
+		       this.relojHilo.reloj3.setHora(x);
+                       this.relojHilo.reloj3.setMinuto(y);
+                       this.TFHora.setText("");
+                       this.TFMinuto.setText("");
 		    }
-       		else{
-		       	JOptionPane.showMessageDialog(null, "Los valores no son validos");
-		       	h1=new Thread(this);
-		       	id[0]=h1.getName();
-		       	h1.start();
-       		}
+       		else
+		    JOptionPane.showMessageDialog(null, "Los valores no son validos");
         }
-        System.out.println("Boton reloj3: " + this.TFHora.getText() + ":" + this.TFMinuto.getText());
+        //System.out.println("Boton reloj3: " + this.TFHora.getText() + ":" + this.TFMinuto.getText());
     }//GEN-LAST:event_BReloj3ActionPerformed
 
     private void BReloj4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BReloj4ActionPerformed
@@ -394,52 +325,86 @@ public class MainWindow extends javax.swing.JFrame implements Runnable {
         String M=this.TFMinuto.getText();
         
          //Se verifica que no esten vacias
-        if(H.equals("")||M.equals("")){
+        if(H.equals("")||M.equals(""))
             JOptionPane.showMessageDialog(null, "Tienes que ingresar datos");
-            h1=new Thread(this);//Si no hay datos, que siga su marcha el reloj
-            id[0]=h1.getName();
-            h1.start();
-        }
         else{
            //Se verifica que las horas no sean mayores de 24 y los minutos de 60
            	int x=Integer.parseInt(H);
            	int y=Integer.parseInt(M);
        		if((x>=0 && x<=24)&&(y>=0 && y<=59)){  
-		       hora1[0]=Integer.parseInt(H);
-		       min1[0]=Integer.parseInt(M);
-		       h1=new Thread(this);
-		       id[0]=h1.getName();
-		       h1.start();
+		       this.relojHilo.reloj4.setHora(x);
+                       this.relojHilo.reloj4.setMinuto(y);
 		    }
-       		else{
-		       	JOptionPane.showMessageDialog(null, "Los valores no son validos");
-		       	h1=new Thread(this);
-		       	id[0]=h1.getName();
-		       	h1.start();
-       		}
+       		else
+		    JOptionPane.showMessageDialog(null, "Los valores no son validos");
         }
-        System.out.println("Boton reloj4: " + this.TFHora.getText() + ":" + this.TFMinuto.getText());
+        //System.out.println("Boton reloj4: " + this.TFHora.getText() + ":" + this.TFMinuto.getText());
     }//GEN-LAST:event_BReloj4ActionPerformed
 
     private void BSegReloj1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSegReloj1ActionPerformed
-        System.out.println("Boton seg 1: " + this.TFSegundo.getText());
+        //System.out.println("Boton seg 1: " + this.TFSegundo.getText());
+        String seg=this.TFSegundo.getText();        
+        
+        if(seg.equals(""))
+            JOptionPane.showMessageDialog(null, "Tienes quw ingresar datos");
+        else{
+            float x=Float.parseFloat(seg);
+                if((x>=0)){  
+                this.relojHilo.reloj1.setVelocidad((int)(x*1000));
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Los valores no son validos");
+       }
     }//GEN-LAST:event_BSegReloj1ActionPerformed
 
     private void BSegReloj2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSegReloj2ActionPerformed
-        System.out.println("Boton seg 2: " + this.TFSegundo.getText());
+        //System.out.println("Boton seg 2: " + this.TFSegundo.getText());
+        String seg=this.TFSegundo.getText();        
+        
+        if(seg.equals(""))
+            JOptionPane.showMessageDialog(null, "Tienes quw ingresar datos");
+        else{
+            float x=Float.parseFloat(seg);
+                if((x>=0)){  
+                this.relojHilo.reloj2.setVelocidad((int)(x*1000));
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Los valores no son validos");
+       }
     }//GEN-LAST:event_BSegReloj2ActionPerformed
 
     private void BSegReloj3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSegReloj3ActionPerformed
-        System.out.println("Boton seg 3: " + this.TFSegundo.getText());
+        //System.out.println("Boton seg 3: " + this.TFSegundo.getText());
+        String seg=this.TFSegundo.getText();        
+        
+        if(seg.equals(""))
+            JOptionPane.showMessageDialog(null, "Tienes quw ingresar datos");
+        else{
+            float x=Float.parseFloat(seg);
+                if((x>=0)){  
+                this.relojHilo.reloj3.setVelocidad((int)(x*1000));
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Los valores no son validos");
+       }
     }//GEN-LAST:event_BSegReloj3ActionPerformed
 
     private void BSegReloj4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSegReloj4ActionPerformed
-        System.out.println("Boton seg 4: " + this.TFSegundo.getText());
+        //System.out.println("Boton seg 4: " + this.TFSegundo.getText());
+        String seg=this.TFSegundo.getText();        
+        
+        if(seg.equals(""))
+            JOptionPane.showMessageDialog(null, "Tienes quw ingresar datos");
+        else{
+            float x=Float.parseFloat(seg);
+                if((x>=0)){  
+                this.relojHilo.reloj4.setVelocidad((int)(x*1000));
+                }
+                else
+                    JOptionPane.showMessageDialog(null, "Los valores no son validos");
+       }
     }//GEN-LAST:event_BSegReloj4ActionPerformed
 
-    public void run(){
-
-    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BReloj1;
@@ -452,10 +417,10 @@ public class MainWindow extends javax.swing.JFrame implements Runnable {
     private javax.swing.JButton BSegReloj4;
     private javax.swing.JLabel LabelDosPuntos;
     private javax.swing.JLabel LabelHora;
-    private javax.swing.JLabel LabelReloj1;
-    private javax.swing.JLabel LabelReloj2;
-    private javax.swing.JLabel LabelReloj3;
-    private javax.swing.JLabel LabelReloj4;
+    public javax.swing.JLabel LabelReloj1;
+    public javax.swing.JLabel LabelReloj2;
+    public javax.swing.JLabel LabelReloj3;
+    public javax.swing.JLabel LabelReloj4;
     private javax.swing.JLabel LabelSegundo;
     private javax.swing.JTextField TFHora;
     private javax.swing.JTextField TFMinuto;

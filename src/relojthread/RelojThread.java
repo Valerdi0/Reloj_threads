@@ -17,6 +17,8 @@ public class RelojThread {
     public static void main(String[] args) {
         // TODO code application logic here
         MainWindow v = new MainWindow();
+        RelojHilo rj = new RelojHilo(v.LabelReloj1, v.LabelReloj2, v.LabelReloj3, v.LabelReloj4);
+        v.relojHilo = rj;
         v.setVisible(true);
     }
     
