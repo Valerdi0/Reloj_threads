@@ -34,6 +34,10 @@ public class Minutos extends Thread{
     public void setMinuto(int minuto) {
         this.minuto = minuto;
     }
+    
+    public void setSegundo(int segundo) {
+        this.segundo = segundo;
+    }
 
     public void setVelocidad(int velocidad) {
         this.velocidad = velocidad;

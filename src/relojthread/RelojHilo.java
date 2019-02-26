@@ -37,7 +37,9 @@ public class RelojHilo {
         
         reloj1.setHora(cal.get(Calendar.HOUR_OF_DAY));
         reloj1.setMinuto(cal.get(Calendar.MINUTE));
+        reloj1.setSegundo(cal.get(Calendar.SECOND));
         reloj1.setVelocidad(1000);
+        
         
         reloj2.setHora((int) (Math.random() * 24));
         reloj2.setMinuto((int) (Math.random() * 60));
